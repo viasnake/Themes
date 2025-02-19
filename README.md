@@ -23,6 +23,16 @@ To run a theme locally, you need to symlink a theme to your local Ghost site.
 yarn symlink --theme <theme-name> --site /dir/to/your/ghost-site
 ```
 
+If you're running the Ghost monorepo:
+```bash
+yarn symlink --theme <theme-name> --site /dir/to/Ghost/ghost/core
+```
+
+Or if you're running a Ghost instance via the CLI:
+```bash
+yarn symlink --theme <theme-name> --site /dir/to/ghost-instance
+```
+
 Restart your Ghost instance and the theme will be listed in the `Design` settings.
 
 To create an installable theme zip file in `packages/<theme-name>/dist/`:
@@ -34,4 +44,4 @@ yarn zip --theme <theme-name>
 
 ## Copyright & License
 
-Copyright (c) 2013-2022 Ghost Foundation - Released under the [MIT license](LICENSE).
+Copyright (c) 2013-2025 Ghost Foundation - Released under the [MIT license](LICENSE).

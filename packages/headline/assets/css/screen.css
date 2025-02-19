@@ -7,6 +7,13 @@
     --head-nav-gap: 32px;
     --color-primary-text: var(--color-darker-gray);
     --h1-size: 4.4rem;
+    --footer-spacing: 120px;
+}
+
+@media (max-width: 767px) {
+    :root {
+        --footer-spacing: 64px;
+    }
 }
 
 figcaption {
@@ -223,9 +230,6 @@ body:not(.home-template) .gh-topic-grid .gh-card {
 }
 
 .gh-card-footer {
-    display: flex;
-    gap: 6px;
-    align-items: center;
     margin-top: 16px;
     font-size: 1.1rem;
     font-weight: 500;
@@ -242,19 +246,20 @@ body:not(.home-template) .gh-topic-grid .gh-card {
     color: var(--color-white);
 }
 
-.gh-card-footer > * + * {
-    display: flex;
-    gap: 6px;
-    align-items: center;
+.gh-card-footer > * {
+    display: inline-block;
 }
 
 .gh-card-footer > * + *:not(script)::before {
-    display: block;
+    display: inline-flex;
     width: 2px;
     height: 2px;
+    margin-right: 6px;
+    margin-left: 4px;
     content: "";
     background-color: currentColor;
     border-radius: 50%;
+    transform: translateY(-3px);
 }
 
 /* Styles specific to list style sections */
@@ -562,8 +567,8 @@ body:not(.home-template) .gh-topic-grid .gh-card {
     color: var(--color-white);
 }
 
-.has-serif-body .gh-cover-description {
-    font-family: var(--font-serif);
+.has-serif-body:not([class*=" gh-font-body"]):not([class^="gh-font-body"]) .gh-cover-description {
+    font-family: var(--gh-font-body, var(--font-serif));
 }
 
 /* Page head */
@@ -587,8 +592,8 @@ body:not(.home-template) .gh-topic-grid .gh-card {
     color: var(--color-secondary-text);
 }
 
-.has-serif-body .gh-pagehead-description {
-    font-family: var(--font-serif);
+.has-serif-body:not([class*=" gh-font-body"]):not([class^="gh-font-body"]) .gh-pagehead-description {
+    font-family: var(--gh-font-body, var(--font-serif));
 }
 
 /* Subscription banner */
@@ -605,8 +610,8 @@ body:not(.home-template) .gh-topic-grid .gh-card {
     white-space: break-spaces;
 }
 
-.has-serif-title .gh-subscribe-title {
-    font-family: var(--font-serif);
+.has-serif-title:not([class*=" gh-font-heading"]):not([class^="gh-font-heading"]) .gh-subscribe-title {
+    font-family: var(--gh-font-heading, var(--font-serif));
 }
 
 .gh-subscribe-description {
@@ -615,8 +620,8 @@ body:not(.home-template) .gh-topic-grid .gh-card {
     white-space: break-spaces;
 }
 
-.has-serif-body .gh-subscribe-description {
-    font-family: var(--font-serif);
+.has-serif-body:not([class*=" gh-font-body"]):not([class^="gh-font-body"]) .gh-subscribe-description {
+    font-family: var(--gh-font-body, var(--font-serif));
 }
 
 .gh-subscribe-btn {
@@ -641,6 +646,10 @@ body:not(.home-template) .gh-topic-grid .gh-card {
     padding-bottom: 120px;
     margin-top: 120px;
     background-color: var(--color-darker-gray);
+}
+
+.page-template .gh-foot {
+    margin-top: 0;
 }
 
 .gh-foot,
